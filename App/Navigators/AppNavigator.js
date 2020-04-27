@@ -1,5 +1,5 @@
 import { createAppContainer, createStackNavigator } from 'react-navigation'
-import { fromRight, fadeIn, zoomOut } from 'react-navigation-transitions'
+import { fromRight, fadeIn } from 'react-navigation-transitions'
 
 import LoginScreen from 'App/Containers/Login/'
 import HomeScreen from 'App/Containers/HomeScreen/'
@@ -16,12 +16,6 @@ const handleCustomTransition = ({ scenes }) => {
     nextScene.route.routeName === 'MainScreen'
   ) {
     return fadeIn()
-  } else if (
-    prevScene &&
-    prevScene.route.routeName === 'MainScreen' &&
-    nextScene.route.routeName === 'HomeScreen'
-  ) {
-    return zoomOut()
   }
 
   return fromRight()
