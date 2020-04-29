@@ -1,24 +1,18 @@
 import React from 'react'
-import { View, ScrollView } from 'react-native'
+import { Text, View } from 'react-native'
 import { SafeAreaView } from 'react-navigation'
 import { connect } from 'react-redux'
 // import PropTypes from 'prop-types'
 
 import Header from 'App/Components/Header'
-import Card from 'App/Components/Card'
 import styles from './styles'
 
-const data = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }]
-const HomeScreen = () => {
+const ProfileScreen = () => {
   return (
     <SafeAreaView forceInset={{ bottom: 'never' }} style={styles.safeAreaContainer}>
       <Header title="Zing" />
       <View style={styles.container}>
-        <ScrollView>
-          {data.map((result) => (
-            <Card key={result.id} />
-          ))}
-        </ScrollView>
+        <Text>Profile Screen</Text>
       </View>
     </SafeAreaView>
   )
@@ -33,6 +27,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 // const {} = PropTypes
-HomeScreen.propTypes = {}
+ProfileScreen.propTypes = {}
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen)
+export default connect(mapStateToProps, mapDispatchToProps)(ProfileScreen)

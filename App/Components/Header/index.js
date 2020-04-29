@@ -6,7 +6,7 @@ import NavigationService from 'App/Services/NavigationService'
 
 import styles from './styles'
 
-const Header = ({ title }) => {
+const Header = ({ title, backButton }) => {
   const {
     containerStyle,
     labelStyle,
@@ -14,25 +14,31 @@ const Header = ({ title }) => {
     leftButtonStyle,
     leftTextStyle,
     rightStyle,
+    rightTextStyle,
   } = styles
 
   return (
     <View style={containerStyle}>
       <View style={leftStyle}>
-        <TouchableOpacity onPress={() => NavigationService.goBack()} style={leftButtonStyle}>
-          <FontAwesome name="chevron-left" size={15} />
-          <Text style={leftTextStyle}>Back</Text>
-        </TouchableOpacity>
+        {backButton && (
+          <TouchableOpacity onPress={() => NavigationService.goBack()} style={leftButtonStyle}>
+            <FontAwesome name="chevron-left" color="#fff" size={15} />
+            <Text style={leftTextStyle}>Back</Text>
+          </TouchableOpacity>
+        )}
       </View>
       <Text style={labelStyle}>{title}</Text>
-      <View style={rightStyle} />
+      <View style={rightStyle}>
+        <Text style={rightTextStyle}>LIVE</Text>
+      </View>
     </View>
   )
 }
 
 export default Header
 
-const { string } = PropTypes
+const { string, bool } = PropTypes
 Header.propTypes = {
   title: string,
+  backButton: bool,
 }

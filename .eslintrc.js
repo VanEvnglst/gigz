@@ -47,5 +47,6 @@ module.exports = {
 
     'react-native/no-inline-styles': 2,
     'react-native/no-unused-styles': 1,
+    'react/display-name': 0,
   },
 }

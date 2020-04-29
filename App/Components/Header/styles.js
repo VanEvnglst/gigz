@@ -5,9 +5,9 @@ const { height } = Dimensions.get('window')
 
 export default StyleSheet.create({
   containerStyle: {
-    backgroundColor: 'transparent',
+    backgroundColor: Colors.primary,
     flexDirection: 'row',
-    height: height * 0.13,
+    height: height * 0.05,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -25,14 +25,21 @@ export default StyleSheet.create({
   leftTextStyle: {
     fontSize: 15,
     marginLeft: 5,
+    color: Colors.text,
   },
   rightStyle: {
     flex: 1,
+    alignItems: 'center',
+  },
+  rightTextStyle: {
+    fontSize: 15,
+    marginLeft: 5,
+    color: Colors.text,
   },
   labelStyle: {
     flex: 3,
     fontSize: 18,
     textAlign: 'center',
-    color: Colors.white,
+    color: Colors.text,
   },
 })
