@@ -15,7 +15,7 @@ const Card = () => {
         <Image source={Images.cardImage} style={styles.cardImageStyle} />
       </View>
       <View style={styles.cardEngagementContainer}>
-        <Text style={styles.whiteText}>Engagment buttons</Text>
+        <Text style={styles.whiteText}>Engagement buttons</Text>
       </View>
       <View style={styles.cardCommentContainer}>
         <Text style={styles.whiteText}>Comment section</Text>

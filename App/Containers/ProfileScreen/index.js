@@ -10,9 +10,22 @@ import styles from './styles'
 const ProfileScreen = () => {
   return (
     <SafeAreaView forceInset={{ bottom: 'never' }} style={styles.safeAreaContainer}>
-      <Header title="Zing" />
+      <Header title="Profile" />
       <View style={styles.container}>
-        <Text>Profile Screen</Text>
+        <View style={styles.profileInfoContainer}>
+          <View style={styles.logoContainer}>
+            <View style={styles.logoStyle}>
+              <Text style={styles.whiteText}>Logo</Text>
+            </View>
+          </View>
+          <View style={styles.profileDescriptionContainer}>
+            <Text style={styles.whiteText}>Name</Text>
+            <Text style={styles.whiteText}>Description</Text>
+          </View>
+        </View>
+        <View style={styles.otherInfoContainer}>
+          <Text style={styles.whiteText}>Other Information</Text>
+        </View>
       </View>
     </SafeAreaView>
   )

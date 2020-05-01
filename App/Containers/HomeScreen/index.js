@@ -12,7 +12,7 @@ const data = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }]
 const HomeScreen = () => {
   return (
     <SafeAreaView forceInset={{ bottom: 'never' }} style={styles.safeAreaContainer}>
-      <Header title="Zing" />
+      <Header liveButton title="Zing" />
       <View style={styles.container}>
         <ScrollView>
           {data.map((result) => (

@@ -33,8 +33,7 @@ export default StyleSheet.create({
   },
   rightTextStyle: {
     fontSize: 15,
-    marginLeft: 5,
-    color: Colors.text,
+    color: '#E43F54',
   },
   labelStyle: {
     flex: 3,

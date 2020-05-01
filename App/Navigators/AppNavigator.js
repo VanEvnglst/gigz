@@ -4,6 +4,7 @@ import { TabNavigator } from './TabNavigator'
 
 import LoginScreen from 'App/Containers/Login/'
 import SplashScreen from 'App/Containers/SplashScreen/'
+import LiveScreen from 'App/Containers/LiveScreen/'
 
 const handleCustomTransition = ({ scenes }) => {
   const prevScene = scenes[scenes.length - 2]
@@ -25,6 +26,7 @@ const StackNavigator = createStackNavigator(
   {
     SplashScreen: SplashScreen,
     LoginScreen: LoginScreen,
+    LiveScreen: LiveScreen,
     MainScreen: TabNavigator,
   },
   {

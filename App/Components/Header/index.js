@@ -6,7 +6,7 @@ import NavigationService from 'App/Services/NavigationService'
 
 import styles from './styles'
 
-const Header = ({ title, backButton }) => {
+const Header = ({ title, backButton, liveButton }) => {
   const {
     containerStyle,
     labelStyle,
@@ -28,9 +28,9 @@ const Header = ({ title, backButton }) => {
         )}
       </View>
       <Text style={labelStyle}>{title}</Text>
-      <View style={rightStyle}>
-        <Text style={rightTextStyle}>LIVE</Text>
-      </View>
+      <TouchableOpacity onPress={() => NavigationService.navigate('LiveScreen')} style={rightStyle}>
+        {liveButton && <Text style={rightTextStyle}>LIVE</Text>}
+      </TouchableOpacity>
     </View>
   )
 }
@@ -41,4 +41,5 @@ const { string, bool } = PropTypes
 Header.propTypes = {
   title: string,
   backButton: bool,
+  liveButton: bool,
 }
