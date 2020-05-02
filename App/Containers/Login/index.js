@@ -20,13 +20,16 @@ const LoginScreen = ({ navigation, doPostLogin, login }) => {
 
   const handleInput = (key, value) => setLogin({ ...loginState, [key]: value })
 
-  // const handleLoginSubmit = () => doPostLogin(loginState)
-  const handleLoginSubmit = () => navigation.navigate('HomeScreen')
+  const handleLoginSubmit = () => {
+    console.log(loginState)
+    // doPostLogin(loginState)
+  }
+  // const handleLoginSubmit = () => navigation.navigate('HomeScreen')
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.logoContainer}>
-        <Text>Logo</Text>
+        <Text>Zing Logo</Text>
       </View>
       <View style={styles.formContainer}>
         <Input
@@ -42,7 +45,7 @@ const LoginScreen = ({ navigation, doPostLogin, login }) => {
         <Button onClick={handleLoginSubmit} label="Sign in" />
       </View>
       <View style={styles.footerContainer}>
-        <Text>Footer</Text>
+        <Text>Copyright Zing 2020</Text>
       </View>
     </SafeAreaView>
   )
@@ -66,7 +69,4 @@ LoginScreen.propTypes = {
   doPostLogin: func,
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(LoginScreen)
+export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen)

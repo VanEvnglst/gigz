@@ -4,14 +4,18 @@ import { api } from 'App/Services/api'
 import UserActions, { UserTypes } from 'App/Redux/UserRedux'
 
 const doPostLogin = ({ payload }) => {
-  return api.post('/auth/login', payload, {
+  console.log(payload)
+  /*
+  return api.post('/login', payload, {
     headers: {
       'Content-Type': 'application/json',
     },
   })
+  */
 }
 
 export function* postLogin(payload) {
+  console.log(payload, 'payload')
   try {
     const response = yield call(doPostLogin, { payload })
     if (response.status === 200) {
