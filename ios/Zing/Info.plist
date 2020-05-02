@@ -37,6 +37,10 @@
 			</dict>
 		</dict>
 	</dict>
+        <key>NSCameraUsageDescription</key>
+        <string>Zing requires access to your phone’s camera.</string>
+        <key>NSMicrophoneUsageDescription</key>
+        <string>Zing requires access to your phone’s Microphone.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
 	<key>UILaunchStoryboardName</key>

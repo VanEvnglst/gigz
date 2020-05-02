@@ -3,6 +3,7 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 target 'Zing' do
   # Pods for Zing
+  pod 'react-native-nodemediaclient', path: '../node_modules/react-native-nodemediaclient'
   rn_maps_path = '../node_modules/react-native-maps'
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
   pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
