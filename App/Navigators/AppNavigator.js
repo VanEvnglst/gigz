@@ -6,6 +6,7 @@ import LoginScreen from 'App/Containers/Login/'
 import SplashScreen from 'App/Containers/SplashScreen/'
 import LiveScreen from 'App/Containers/LiveScreen/'
 import CreditCardScreen from 'App/Containers/CreditCardScreen/'
+import OpenTokScreen from 'App/Containers/OpenTok/'
 
 const handleCustomTransition = ({ scenes }) => {
   const prevScene = scenes[scenes.length - 2]
@@ -28,6 +29,7 @@ const StackNavigator = createStackNavigator(
     SplashScreen: SplashScreen,
     LoginScreen: LoginScreen,
     LiveScreen: LiveScreen,
+    OpenTokScreen: OpenTokScreen,
     CreditCardScreen: CreditCardScreen,
     MainScreen: TabNavigator,
   },
