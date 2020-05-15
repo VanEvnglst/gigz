@@ -23,6 +23,7 @@ export default StyleSheet.create({
   logoContainer: {
     flex: 2,
     justifyContent: 'center',
+    alignItems: 'center',
   },
   logoStyle: {
     backgroundColor: Colors.secondary,

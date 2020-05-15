@@ -3,23 +3,19 @@ import { api } from 'App/Services/api'
 
 import UserActions, { UserTypes } from 'App/Redux/UserRedux'
 
-const doPostLogin = ({ payload }) => {
-  console.log(payload)
-  /*
-  return api.post('/login', payload, {
+const doPostLogin = (audience) => {
+  return api.post('/audiences/login', audience, {
     headers: {
       'Content-Type': 'application/json',
     },
   })
-  */
 }
 
-export function* postLogin(payload) {
-  console.log(payload, 'payload')
+export function* postLogin({ audience }) {
   try {
-    const response = yield call(doPostLogin, { payload })
+    const response = yield call(doPostLogin, { audience })
     if (response.status === 200) {
-      yield put(UserActions.postLoginSuccess(response.data.data))
+      yield put(UserActions.postLoginSuccess(response.data))
     } else {
       yield put(UserActions.postLoginFailure(response.data))
     }
@@ -29,7 +25,7 @@ export function* postLogin(payload) {
 }
 
 function* watchUser() {
-  yield takeLatest(UserTypes.POST_LOGIN, doPostLogin)
+  yield takeLatest(UserTypes.POST_LOGIN, postLogin)
 }
 
 export default watchUser

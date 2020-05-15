@@ -11,7 +11,7 @@ import styles from './styles'
 
 const LoginScreen = ({ navigation, doPostLogin, login }) => {
   useEffect(() => {
-    if (!login.fetching && login.data) {
+    if (login.data) {
       navigation.navigate('HomeScreen')
     }
   }, [login])
@@ -21,10 +21,8 @@ const LoginScreen = ({ navigation, doPostLogin, login }) => {
   const handleInput = (key, value) => setLogin({ ...loginState, [key]: value })
 
   const handleLoginSubmit = () => {
-    console.log(loginState)
-    // doPostLogin(loginState)
+    doPostLogin(loginState)
   }
-  // const handleLoginSubmit = () => navigation.navigate('HomeScreen')
 
   return (
     <SafeAreaView style={styles.container}>

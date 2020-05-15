@@ -8,56 +8,50 @@ const defaultState = {
 }
 
 export const INITIAL_STATE = {
-  accessToken: null,
-  login: { ...defaultState },
+  getStreams: { ...defaultState },
 }
 
 /* ------------- Types and Action Creators ------------- */
 const { Types, Creators } = createActions({
-  postLogin: ['audience'],
-  postLoginSuccess: ['data'],
-  postLoginFailure: ['error'],
-  logout: [''],
+  getStreams: [''],
+  getStreamsSuccess: ['data'],
+  getStreamsFailure: ['error'],
 })
 
-export const UserTypes = Types
+export const StreamTypes = Types
 export default Creators
 
 /* ------------- Reducers ------------- */
 
-export const postLogin = (state) => ({
+export const getStreams = (state) => ({
   ...state,
-  login: {
+  getStreams: {
     fetching: true,
     data: null,
     error: null,
   },
 })
 
-export const postLoginSuccess = (state, { data }) => ({
+export const getStreamsSuccess = (state, { data }) => ({
   ...state,
-  accessToken: data.access_token,
-  login: {
+  getStreams: {
     fetching: false,
-    data: data.audience,
+    data: data,
     error: null,
   },
 })
 
-export const postLoginFailure = (state, error) => ({
+export const getStreamsFailure = (state, error) => ({
   ...state,
-  login: {
+  getStreams: {
     fetching: false,
     data: null,
     error,
   },
 })
 
-export const logout = (state) => INITIAL_STATE
-
 export const reducer = createReducer(INITIAL_STATE, {
-  [Types.POST_LOGIN]: postLogin,
-  [Types.POST_LOGIN_SUCCESS]: postLoginSuccess,
-  [Types.POST_LOGIN_FAILURE]: postLoginFailure,
-  [Types.LOGOUT]: logout,
+  [Types.GET_STREAMS]: getStreams,
+  [Types.GET_STREAMS_SUCCESS]: getStreamsSuccess,
+  [Types.GET_STREAMS_FAILURE]: getStreamsFailure,
 })

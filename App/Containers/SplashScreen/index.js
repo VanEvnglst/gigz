@@ -1,20 +1,32 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Text, View } from 'react-native'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+
 import styles from './styles'
 
-export default class SplashScreen extends React.Component {
-  componentDidMount() {
-    const {
-      navigation: { navigate },
-    } = this.props
-    setTimeout(() => navigate('OpenTokScreen'), 1000)
-  }
+const SplashScreen = ({ navigation, login }) => {
+  useEffect(() => {
+    const redirectToPage = login.data ? 'HomeScreen' : 'LoginScreen'
+    setTimeout(() => navigation.navigate(redirectToPage), 1000)
+  }, [])
 
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.logoStyle}>Zing</Text>
-      </View>
-    )
+  return (
+    <View style={styles.container}>
+      <Text style={styles.logoStyle}>Zing</Text>
+    </View>
+  )
+}
+
+function mapStateToProps(state) {
+  return {
+    login: state.user.login,
   }
 }
+
+const { object } = PropTypes
+SplashScreen.propTypes = {
+  login: object,
+}
+
+export default connect(mapStateToProps, null)(SplashScreen)

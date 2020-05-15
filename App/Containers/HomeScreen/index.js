@@ -1,38 +1,54 @@
-import React from 'react'
-import { View, ScrollView } from 'react-native'
+import React, { useEffect } from 'react'
+import { View, ScrollView, Text } from 'react-native'
 import { SafeAreaView } from 'react-navigation'
+import PropTypes from 'prop-types'
+
 import { connect } from 'react-redux'
-// import PropTypes from 'prop-types'
+import StreamActions from 'App/Redux/StreamRedux'
 
 import Header from 'App/Components/Header'
 import Card from 'App/Components/Card'
 import styles from './styles'
 
-const data = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }]
-const HomeScreen = () => {
+const HomeScreen = ({ stream, doGetStreams }) => {
+  useEffect(() => {
+    doGetStreams()
+  }, [])
+
+  const { data, fetching } = stream
+
   return (
     <SafeAreaView forceInset={{ bottom: 'never' }} style={styles.safeAreaContainer}>
       <Header liveButton title="Zing" />
       <View style={styles.container}>
-        <ScrollView>
-          {data.map((result) => (
-            <Card key={result.id} />
-          ))}
-        </ScrollView>
+        {fetching ? (
+          <Text style={styles.whiteText}>Loading...</Text>
+        ) : (
+          <ScrollView style={styles.scrollContainer}>
+            {data && data.live_streams.map((result) => <Card key={result.id} />)}
+          </ScrollView>
+        )}
       </View>
     </SafeAreaView>
   )
 }
 
 function mapStateToProps(state) {
-  return {}
+  return {
+    stream: state.stream.getStreams,
+  }
 }
 
 function mapDispatchToProps(dispatch) {
-  return {}
+  return {
+    doGetStreams: () => dispatch(StreamActions.getStreams()),
+  }
 }
 
-// const {} = PropTypes
-HomeScreen.propTypes = {}
+const { func, object } = PropTypes
+HomeScreen.propTypes = {
+  stream: object,
+  doGetStreams: func,
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen)

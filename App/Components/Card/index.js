@@ -1,19 +1,26 @@
 import React from 'react'
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, TouchableOpacity } from 'react-native'
 import PropTypes from 'prop-types'
 import { Images } from 'App/Theme/'
+
+import NavigationService from 'App/Services/NavigationService'
 
 import styles from './styles'
 
 const Card = () => {
+  const { navigate } = NavigationService
   return (
     <View style={styles.cardContainer}>
       <View style={styles.cardProfileContainer}>
         <Text style={styles.whiteText}>Profile</Text>
       </View>
-      <View style={styles.cardImageContainer}>
+      <TouchableOpacity
+        onPress={() => navigate('LiveScreen')}
+        activeOpacity={0.7}
+        style={styles.cardImageContainer}
+      >
         <Image source={Images.cardImage} style={styles.cardImageStyle} />
-      </View>
+      </TouchableOpacity>
       <View style={styles.cardEngagementContainer}>
         <Text style={styles.whiteText}>Engagement buttons</Text>
       </View>

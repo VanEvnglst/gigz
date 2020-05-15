@@ -11,5 +11,15 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.secondary,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  scrollContainer: {
+    flex: 1,
+    alignSelf: 'stretch',
+  },
+  whiteText: {
+    color: Colors.text,
+    textAlign: 'center',
   },
 })
