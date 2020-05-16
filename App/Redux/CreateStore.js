@@ -16,7 +16,7 @@ import storage from 'redux-persist/lib/storage'
 const persistConfig = {
   key: 'root',
   storage: storage,
-  version: 2,
+  version: 3,
   debug: true,
   /**
    * Blacklist state that we do not need/want to persist
@@ -44,10 +44,7 @@ export default (rootReducer, rootSaga) => {
     // add redux devtools extension if present
     store = createStore(
       persistedReducer,
-      compose(
-        ...enhancers,
-        window.__REDUX_DEVTOOLS_EXTENSION__()
-      )
+      compose(...enhancers, window.__REDUX_DEVTOOLS_EXTENSION__())
     )
   } else {
     store = createStore(persistedReducer, compose(...enhancers))

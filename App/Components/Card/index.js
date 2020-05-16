@@ -7,7 +7,7 @@ import NavigationService from 'App/Services/NavigationService'
 
 import styles from './styles'
 
-const Card = () => {
+const Card = ({ stream }) => {
   const { navigate } = NavigationService
   return (
     <View style={styles.cardContainer}>
@@ -15,7 +15,7 @@ const Card = () => {
         <Text style={styles.whiteText}>Profile</Text>
       </View>
       <TouchableOpacity
-        onPress={() => navigate('LiveScreen')}
+        onPress={() => navigate('LiveScreen', { id: stream.id })}
         activeOpacity={0.7}
         style={styles.cardImageContainer}
       >
@@ -33,5 +33,7 @@ const Card = () => {
 
 export default Card
 
-const {} = PropTypes
-Card.propTypes = {}
+const { object } = PropTypes
+Card.propTypes = {
+  stream: object,
+}

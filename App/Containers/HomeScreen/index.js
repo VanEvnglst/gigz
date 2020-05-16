@@ -25,7 +25,7 @@ const HomeScreen = ({ stream, doGetStreams }) => {
           <Text style={styles.whiteText}>Loading...</Text>
         ) : (
           <ScrollView style={styles.scrollContainer}>
-            {data && data.live_streams.map((result) => <Card key={result.id} />)}
+            {data && data.live_streams.map((result) => <Card stream={result} key={result.id} />)}
           </ScrollView>
         )}
       </View>

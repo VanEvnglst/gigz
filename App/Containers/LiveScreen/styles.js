@@ -15,15 +15,16 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   videoContainer: {
-    position: 'absolute',
-    top: 0,
-    right: 0,
-    left: 0,
-    bottom: 0,
+    flex: 1,
     justifyContent: 'center',
     backgroundColor: Colors.primary,
     alignSelf: 'stretch',
     alignItems: 'center',
+  },
+  subscriberContainer: {
+    width: width,
+    backgroundColor: 'red',
+    flex: 1,
   },
   commentSectionContainer: {
     position: 'absolute',
