@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 import styles from './styles'
 
-const Input = ({ label, value, onChangeText, placeholder, secureTextEntry }) => {
+const Input = ({ label, value, onChangeText, placeholder, secureTextEntry, style }) => {
   const { containerStyle, inputStyle, labelStyle } = styles
 
   return (
@@ -15,7 +15,7 @@ const Input = ({ label, value, onChangeText, placeholder, secureTextEntry }) => 
         placeholder={placeholder}
         autoCapitalize="none"
         autoCorrect={false}
-        style={inputStyle}
+        style={style}
         value={value}
         onChangeText={onChangeText}
       />
