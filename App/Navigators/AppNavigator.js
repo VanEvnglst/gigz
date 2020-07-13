@@ -7,6 +7,10 @@ import SplashScreen from 'App/Containers/SplashScreen/'
 import LiveScreen from 'App/Containers/LiveScreen/'
 import CreditCardScreen from 'App/Containers/CreditCardScreen/'
 import OpenTokScreen from 'App/Containers/OpenTok/'
+import OnboardingScreen from '../Containers/Onboarding';
+import CreateAccountScreen from '../Containers/CreateAccountScreen';
+import CreateAccountDetailsScreen from '../Containers/CreateAccountDetailsScreen'
+import AccountVerificationScreen from '../Containers/AccountVerificationScreen';
 
 const handleCustomTransition = ({ scenes }) => {
   const prevScene = scenes[scenes.length - 2]
@@ -27,10 +31,14 @@ const handleCustomTransition = ({ scenes }) => {
 const StackNavigator = createStackNavigator(
   {
     SplashScreen: SplashScreen,
+    OnboardingScreen: OnboardingScreen,
     LoginScreen: LoginScreen,
     LiveScreen: LiveScreen,
     OpenTokScreen: OpenTokScreen,
     CreditCardScreen: CreditCardScreen,
+    CreateAccountScreen: CreateAccountScreen,
+    CreateAccountDetails: CreateAccountDetailsScreen,
+    AccountVerification: AccountVerificationScreen, 
     MainScreen: TabNavigator,
   },
   {
