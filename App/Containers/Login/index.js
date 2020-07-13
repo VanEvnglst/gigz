@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, SafeAreaView } from 'react-native'
+import { View, Text, SafeAreaView, Image, TouchableOpacity, TextInput } from 'react-native'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
@@ -8,6 +8,7 @@ import UserActions from 'App/Redux/UserRedux'
 import Input from 'App/Components/Input/'
 import Button from 'App/Components/Button'
 import styles from './styles'
+import { Images } from '../../Theme';
 
 const LoginScreen = ({ navigation, doPostLogin, login }) => {
   useEffect(() => {
@@ -25,27 +26,57 @@ const LoginScreen = ({ navigation, doPostLogin, login }) => {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.logoContainer}>
-        <Text>Zing Logo</Text>
+    <View style={styles.container}>
+        <View style={styles.container}>
+        <View style={styles.bannerContainer}>
+        <View
+          style={styles.bannerOverlay}>
+          <Image
+            source={Images.loginBanner}
+            resizeMode='cover'
+            style={styles.loginBanner}
+          />
+        </View>
+        </View>
       </View>
-      <View style={styles.formContainer}>
-        <Input
-          label="Email"
-          onChangeText={(value) => handleInput('email', value)}
-          placeholder="Email"
+      <View style={styles.contentContainer}>
+        <View style={styles.headerContainer}>
+          <Text style={styles.headerTextStyle}>Welcome Back!</Text>
+          <Text style={styles.subHeaderTextStyle}>Login to your account</Text>
+        </View>
+
+      <View style={styles.inputContainer}>
+        <TextInput
+        style={styles.inputStyle}
+        placeholder={'Enter your mobile number'}
+        onChangeText={(value) => handleInput('email', value)}
         />
-        <Input
-          label="Password"
-          onChangeText={(value) => handleInput('password', value)}
-          placeholder="Password"
+        <TextInput
+        style={styles.inputStyle}
+        placeholder={'Password'}
+        onChangeText={(value) => handleInput('password', value)}
         />
-        <Button onClick={handleLoginSubmit} label="Sign in" />
       </View>
+
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity
+          style={styles.buttonStyle}
+          onPress={() => handleLoginSubmit()}>
+          <Text style={styles.buttonTextStyle}>Login</Text>
+        </TouchableOpacity>
+      </View>
+      
       <View style={styles.footerContainer}>
-        <Text>Copyright Zing 2020</Text>
+        <View style={styles.footerContent}>
+          <Text style={styles.subTextStyle}>Still don't have an account?</Text>
+          <TouchableOpacity
+            onPress={() => navigate('CreateAccountScreen')}>
+            <Text style={[styles.boldSubText, styles.linkTextStyle]}> Sign up here</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-    </SafeAreaView>
+    </View>
+    </View> 
   )
 }
 
