@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import {
-  Dimensions,       
-  Platform,         
-  ScrollView,       
-  StyleSheet,     
-  View, Text, TouchableOpacity       
+  Dimensions,
+  Platform,
+  ScrollView,
+  StyleSheet,
+  View, Text, TouchableOpacity
 } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
 
 export default class OnboardingScreens extends Component {
 
-  
+
   static defaultProps = {
     horizontal: true,
     pagingEnabled: true,
@@ -26,10 +26,10 @@ export default class OnboardingScreens extends Component {
   };
 
   state = this.initState(this.props);
-  
+
 
   initState(props) {
-   
+
     const total = props.children ? props.children.length || 1 : 0,
       index = total > 1 ? Math.min(props.index, total - 1) : 0,
       offset = width * index;
@@ -145,7 +145,7 @@ export default class OnboardingScreens extends Component {
 
     const ActiveDot = <View style={[styles.dot, styles.activeDot]} />,
       Dot = <View style={styles.dot} />;
-  
+
     let dots = [];
 
     for (let key = 0; key < total; key++) {
@@ -155,7 +155,7 @@ export default class OnboardingScreens extends Component {
       );
     }
 
-     
+
 
     return (
       <View
@@ -172,12 +172,12 @@ export default class OnboardingScreens extends Component {
     if (total <= 1) {
       return null;
     }
-    
+
     const skipAction = <Text style={styles.action}>Skip</Text>;
     const nextAction = <Text style={styles.action}>Start</Text>
 
     for(let key = 0; key < total; key++) {
-      if (index === total - 1) { 
+      if (index === total - 1) {
         return (
           <TouchableOpacity
             onPress={() => this.navigate()}>
@@ -202,7 +202,6 @@ export default class OnboardingScreens extends Component {
   }
 
   render = ({ children } = this.props) => {
-    debugger;
     return (
       <View style={[styles.container, styles.fullScreen]}>
         {this.renderScrollView(children)}
