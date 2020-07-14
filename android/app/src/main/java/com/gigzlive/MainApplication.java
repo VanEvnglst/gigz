@@ -1,4 +1,4 @@
-package com.zing;
+package com.gigzlive;
 
 import android.app.Application;
 import android.content.Context;

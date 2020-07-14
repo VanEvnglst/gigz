@@ -1,8 +1,8 @@
 platform :ios, '9.0'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-target 'Zing' do
-  # Pods for Zing
+target 'GigzLive' do
+  # Pods for GigzLive
   pod 'OpenTok', '2.16.3'
   pod 'react-native-nodemediaclient', path: '../node_modules/react-native-nodemediaclient'
   rn_maps_path = '../node_modules/react-native-maps'
@@ -38,15 +38,15 @@ target 'Zing' do
   pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
-  target 'ZingTests' do
+  target 'GigzLiveTests' do
     inherit! :search_paths
     # Pods for testing
   end
   use_native_modules!
 end
-target 'Zing-tvOS' do
-  # Pods for Zing-tvOS
-  target 'Zing-tvOSTests' do
+target 'GigzLive-tvOS' do
+  # Pods for GigzLive-tvOS
+  target 'GigzLive-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

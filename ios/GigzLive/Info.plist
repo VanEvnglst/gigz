@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>Zing</string>
+	<string>GigzLive</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -38,9 +38,9 @@
 		</dict>
 	</dict>
         <key>NSCameraUsageDescription</key>
-        <string>Zing requires access to your phone’s camera.</string>
+        <string>GigzLive requires access to your phone’s camera.</string>
         <key>NSMicrophoneUsageDescription</key>
-        <string>Zing requires access to your phone’s Microphone.</string>
+        <string>GigzLive requires access to your phone’s Microphone.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
 	<key>UILaunchStoryboardName</key>

@@ -14,11 +14,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Welcome to React"
 
-@interface ZingTests : XCTestCase
+@interface GigzLiveTests : XCTestCase
 
 @end
 
-@implementation ZingTests
+@implementation GigzLiveTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL(^)(UIView *view))test
 {
