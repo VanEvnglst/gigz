@@ -202,7 +202,6 @@ export default class OnboardingScreens extends Component {
   }
 
   render = ({ children } = this.props) => {
-    debugger;
     return (
       <View style={[styles.container, styles.fullScreen]}>
         {this.renderScrollView(children)}

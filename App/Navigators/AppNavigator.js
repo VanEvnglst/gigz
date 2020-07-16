@@ -9,7 +9,7 @@ import CreditCardScreen from 'App/Containers/CreditCardScreen/'
 import OpenTokScreen from 'App/Containers/OpenTok/'
 import OnboardingScreen from '../Containers/Onboarding'
 import CreateAccountScreen from '../Containers/CreateAccountScreen'
-// import CreateAccountDetailsScreen from '../Containers/CreateAccountDetailsScreen'
+import CreateAccountDetailsScreen from '../Containers/CreateAccountDetailsScreen'
 import AccountVerificationScreen from '../Containers/AccountVerificationScreen'
 
 const handleCustomTransition = ({ scenes }) => {
@@ -37,7 +37,7 @@ const StackNavigator = createStackNavigator(
     OpenTokScreen: OpenTokScreen,
     CreditCardScreen: CreditCardScreen,
     CreateAccountScreen: CreateAccountScreen,
-    //  CreateAccountDetails: CreateAccountDetailsScreen,
+    CreateAccountDetails: CreateAccountDetailsScreen,
     AccountVerification: AccountVerificationScreen,
     MainScreen: TabNavigator,
   },
