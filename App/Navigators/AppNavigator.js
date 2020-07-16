@@ -42,7 +42,7 @@ const StackNavigator = createStackNavigator(
     MainScreen: TabNavigator,
   },
   {
-    initialRouteName: 'CreateAccountScreen',
+    initialRouteName: 'SplashScreen',
     transitionConfig: (nav) => handleCustomTransition(nav),
     headerMode: 'none',
   }

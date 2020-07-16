@@ -13,7 +13,7 @@ const CreateAccountScreen = (props) => {
     navigation: { navigate },
   } = props;
   useEffect(() => {
-    if (!postVerifyNumber.fetching || postVerifyNumber.data) {
+    if (!postVerifyNumber.fetching && postVerifyNumber.data) {
       navigate('AccountVerification');
     }
   }, [postVerifyNumber]);
