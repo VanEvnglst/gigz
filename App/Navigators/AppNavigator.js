@@ -1,20 +1,20 @@
-import { createAppContainer, createStackNavigator } from 'react-navigation'
-import { fromRight, fadeIn } from 'react-navigation-transitions'
-import { TabNavigator } from './TabNavigator'
+import { createAppContainer, createStackNavigator } from 'react-navigation';
+import { fromRight, fadeIn } from 'react-navigation-transitions';
+import { TabNavigator } from './TabNavigator';
 
-import LoginScreen from 'App/Containers/Login/'
-import SplashScreen from 'App/Containers/SplashScreen/'
-import LiveScreen from 'App/Containers/LiveScreen/'
-import CreditCardScreen from 'App/Containers/CreditCardScreen/'
-import OpenTokScreen from 'App/Containers/OpenTok/'
-import OnboardingScreen from '../Containers/Onboarding'
-import CreateAccountScreen from '../Containers/CreateAccountScreen'
+import LoginScreen from 'App/Containers/Login/';
+import SplashScreen from 'App/Containers/SplashScreen/';
+import LiveScreen from 'App/Containers/LiveScreen/';
+import CreditCardScreen from 'App/Containers/CreditCardScreen/';
+import OpenTokScreen from 'App/Containers/OpenTok/';
+import OnboardingScreen from '../Containers/Onboarding';
+import CreateAccountScreen from '../Containers/CreateAccountScreen';
 // import CreateAccountDetailsScreen from '../Containers/CreateAccountDetailsScreen'
-import AccountVerificationScreen from '../Containers/AccountVerificationScreen'
+import AccountVerificationScreen from '../Containers/AccountVerificationScreen';
 
 const handleCustomTransition = ({ scenes }) => {
-  const prevScene = scenes[scenes.length - 2]
-  const nextScene = scenes[scenes.length - 1]
+  const prevScene = scenes[scenes.length - 2];
+  const nextScene = scenes[scenes.length - 1];
 
   // Custom transitions go there
   if (
@@ -22,11 +22,11 @@ const handleCustomTransition = ({ scenes }) => {
     prevScene.route.routeName === 'SplashScreen' &&
     nextScene.route.routeName === 'MainScreen'
   ) {
-    return fadeIn()
+    return fadeIn();
   }
 
-  return fromRight()
-}
+  return fromRight();
+};
 
 const StackNavigator = createStackNavigator(
   {
@@ -42,10 +42,10 @@ const StackNavigator = createStackNavigator(
     MainScreen: TabNavigator,
   },
   {
-    initialRouteName: 'SplashScreen',
+    initialRouteName: 'CreateAccountScreen',
     transitionConfig: (nav) => handleCustomTransition(nav),
     headerMode: 'none',
   }
-)
+);
 
-export default createAppContainer(StackNavigator)
+export default createAppContainer(StackNavigator);
