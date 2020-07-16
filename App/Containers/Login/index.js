@@ -54,6 +54,7 @@ const LoginScreen = ({ navigation, doPostLogin, login }) => {
         <TextInput
         style={styles.inputStyle}
         placeholder={'Password'}
+        secureTextEntry={true}
         onChangeText={(value) => handleInput('password', value)}
         />
       </View>
@@ -70,7 +71,7 @@ const LoginScreen = ({ navigation, doPostLogin, login }) => {
         <View style={styles.footerContent}>
           <Text style={styles.subTextStyle}>Still don't have an account?</Text>
           <TouchableOpacity
-            onPress={() => navigate('CreateAccountScreen')}>
+            onPress={() => navigation.navigate('CreateAccountScreen')}>
             <Text style={[styles.boldSubText, styles.linkTextStyle]}> Sign up here</Text>
           </TouchableOpacity>
         </View>
