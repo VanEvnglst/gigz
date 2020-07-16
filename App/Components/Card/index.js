@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Image, TouchableOpacity } from 'react-native'
+import { View, Text, Image, TouchableOpacity, ImageBackground } from 'react-native'
 import PropTypes from 'prop-types'
 import { Images } from 'App/Theme/'
 
@@ -7,25 +7,33 @@ import NavigationService from 'App/Services/NavigationService'
 
 import styles from './styles'
 
+// TODO: Add property for additional details
+// TODO: Add boolean for showing LIVE NOW container
+// TODO: Add Link text for Remind Me 
+
 const Card = ({ stream }) => {
   const { navigate } = NavigationService
   return (
     <View style={styles.cardContainer}>
-      <View style={styles.cardProfileContainer}>
-        <Text style={styles.whiteText}>Profile</Text>
-      </View>
+    <View style={styles.cardImageContainer}>
       <TouchableOpacity
-        onPress={() => navigate('LiveScreen', { id: stream.id })}
+        //onPress={() => navigate('LiveScreen', { id: stream.id })}
         activeOpacity={0.7}
-        style={styles.cardImageContainer}
       >
-        <Image source={Images.cardImage} style={styles.cardImageStyle} />
+        <ImageBackground source={Images.cardImage} style={styles.cardImageStyle}>
+        <View style={styles.liveNowContainer}>
+          <Text style={{ fontSize: 10, color: 'white'}}>LIVE NOW</Text>
+        </View>
+        </ImageBackground>
       </TouchableOpacity>
-      <View style={styles.cardEngagementContainer}>
-        <Text style={styles.whiteText}>Engagement buttons</Text>
-      </View>
-      <View style={styles.cardCommentContainer}>
-        <Text style={styles.whiteText}>Comment section</Text>
+    </View>
+    <View style={styles.cardDetailsContainer}>
+        <Text style={styles.bandNameText}>Di Bale Na Lang</Text>
+        <View style={styles.liveDetailsContainer}>
+          <Text style={styles.bandDetailsText}>Madeline</Text>
+          <View style={styles.bandDetailsSeparator}/>
+          <Text style={styles.bandDetailsText}>100k watching</Text>
+        </View>
       </View>
     </View>
   )

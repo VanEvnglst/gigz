@@ -8,8 +8,8 @@ const AccountVerificationScreen = (props) => {
 
   const navigate = (code) => {
     console.log(`Code is ${code}, you are good to go!`);
-    navigation.navigate('CreateAccountDetailsScreen');
-  };
+    navigation.navigate('CreateAccountDetails')
+  }
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
