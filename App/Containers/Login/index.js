@@ -1,23 +1,22 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, SafeAreaView, Image, TouchableOpacity, TextInput } from 'react-native'
+import { View, Text, Image, TouchableOpacity, TextInput } from 'react-native'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 import UserActions from 'App/Redux/UserRedux'
 
-import Input from 'App/Components/Input/'
-import Button from 'App/Components/Button'
 import styles from './styles'
-import { Images } from '../../Theme';
+import { Images } from 'App/Theme'
 
 const LoginScreen = ({ navigation, doPostLogin, login }) => {
+  const { navigate } = navigation
   useEffect(() => {
     if (login.data) {
       navigation.navigate('HomeScreen')
     }
   }, [login])
 
-  const [loginState, setLogin] = useState({ email: '', password: '' })
+  const [loginState, setLogin] = useState({ contact: '', password: '' })
 
   const handleInput = (key, value) => setLogin({ ...loginState, [key]: value })
 
@@ -27,16 +26,11 @@ const LoginScreen = ({ navigation, doPostLogin, login }) => {
 
   return (
     <View style={styles.container}>
-        <View style={styles.container}>
+      <View style={styles.container}>
         <View style={styles.bannerContainer}>
-        <View
-          style={styles.bannerOverlay}>
-          <Image
-            source={Images.loginBanner}
-            resizeMode='cover'
-            style={styles.loginBanner}
-          />
-        </View>
+          <View style={styles.bannerOverlay}>
+            <Image source={Images.loginBanner} resizeMode="cover" style={styles.loginBanner} />
+          </View>
         </View>
       </View>
       <View style={styles.contentContainer}>
@@ -45,38 +39,35 @@ const LoginScreen = ({ navigation, doPostLogin, login }) => {
           <Text style={styles.subHeaderTextStyle}>Login to your account</Text>
         </View>
 
-      <View style={styles.inputContainer}>
-        <TextInput
-        style={styles.inputStyle}
-        placeholder={'Enter your mobile number'}
-        onChangeText={(value) => handleInput('email', value)}
-        />
-        <TextInput
-        style={styles.inputStyle}
-        placeholder={'Password'}
-        onChangeText={(value) => handleInput('password', value)}
-        />
-      </View>
+        <View style={styles.inputContainer}>
+          <TextInput
+            style={styles.inputStyle}
+            placeholder={'Enter your mobile number'}
+            onChangeText={(value) => handleInput('contact', value)}
+          />
+          <TextInput
+            style={styles.inputStyle}
+            placeholder={'Password'}
+            onChangeText={(value) => handleInput('password', value)}
+          />
+        </View>
 
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity
-          style={styles.buttonStyle}
-          onPress={() => handleLoginSubmit()}>
-          <Text style={styles.buttonTextStyle}>Login</Text>
-        </TouchableOpacity>
-      </View>
-      
-      <View style={styles.footerContainer}>
-        <View style={styles.footerContent}>
-          <Text style={styles.subTextStyle}>Still don't have an account?</Text>
-          <TouchableOpacity
-            onPress={() => navigate('CreateAccountScreen')}>
-            <Text style={[styles.boldSubText, styles.linkTextStyle]}> Sign up here</Text>
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity style={styles.buttonStyle} onPress={() => handleLoginSubmit()}>
+            <Text style={styles.buttonTextStyle}>Login</Text>
           </TouchableOpacity>
+        </View>
+
+        <View style={styles.footerContainer}>
+          <View style={styles.footerContent}>
+            <Text style={styles.subTextStyle}>Still don't have an account?</Text>
+            <TouchableOpacity onPress={() => navigate('CreateAccountScreen')}>
+              <Text style={[styles.boldSubText, styles.linkTextStyle]}> Sign up here</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
     </View>
-    </View> 
   )
 }
 
