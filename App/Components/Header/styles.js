@@ -5,9 +5,9 @@ const { height } = Dimensions.get('window')
 
 export default StyleSheet.create({
   containerStyle: {
-    backgroundColor: Colors.primary,
+    backgroundColor: 'white',
     flexDirection: 'row',
-    height: height * 0.05,
+    height: height * 0.09,
     justifyContent: 'center',
     alignItems: 'center',
   },
