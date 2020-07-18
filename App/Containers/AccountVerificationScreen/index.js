@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, Platform, KeyboardAvoidingView } from 'react-native';
 import OTPInputView from '@twotalltotems/react-native-otp-input';
 import styles from './styles';
 
@@ -11,7 +11,11 @@ const AccountVerificationScreen = (props) => {
     navigation.navigate('CreateAccountDetails')
   }
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView
+    behavior={Platform.OS == "ios" ? "padding" : "height"}
+    keyboardVerticalOffset={Platform.OS == "ios" ? 0 : 20}
+    enabled={Platform.OS === "ios" ? true : false}
+    style={styles.container}>
       <View style={styles.headerContainer}>
         <Text style={styles.headerText}>Verification</Text>
         <Text style={styles.subText}>
@@ -35,7 +39,7 @@ const AccountVerificationScreen = (props) => {
           </TouchableOpacity>
         </View>
       </View>
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 
