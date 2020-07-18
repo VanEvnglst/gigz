@@ -27,6 +27,7 @@
     "prop-types": "^15.7.2",
     "react": "16.9.0",
     "react-native": "0.61.5",
+    "react-native-country-picker-modal": "^1.11.0",
     "react-native-gesture-handler": "^1.6.1",
     "react-native-input-credit-card": "^0.5.5",
     "react-native-linear-gradient": "^2.5.6",
