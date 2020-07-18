@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import UserActions from 'App/Redux/UserRedux';
 import PropTypes from 'prop-types';
 
-import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, Image, TextInput,Platform,  TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 import { Images } from 'App/Theme';
 import styles from './styles';
 
@@ -27,7 +27,11 @@ const CreateAccountScreen = (props) => {
   };
 
   return (
-    <View style={styles.container}>
+       <KeyboardAvoidingView
+    behavior={Platform.OS == "ios" ? "padding" : "height"}
+    keyboardVerticalOffset={Platform.OS == "ios" ? 0 : 20}
+    enabled={Platform.OS === "ios" ? true : false}
+    style={styles.container}>
       <View style={styles.container}>
         <View style={styles.bannerContainer}>
           <View style={styles.bannerOverlay}>
@@ -35,7 +39,9 @@ const CreateAccountScreen = (props) => {
           </View>
         </View>
       </View>
+
       <View style={styles.contentContainer}>
+     
         <View style={styles.headerContainer}>
           <Text style={styles.headerTextStyle}>Welcome to Gigz</Text>
           <Text style={styles.subHeaderTextStyle}>Create your account</Text>
@@ -46,6 +52,7 @@ const CreateAccountScreen = (props) => {
             value={number}
             onChangeText={(number) => setNumber(number)}
             style={styles.inputStyle}
+            keyboardType={'phone-pad'}
             placeholder={'Enter your mobile number'}
           />
         </View>
@@ -72,7 +79,7 @@ const CreateAccountScreen = (props) => {
           </View>
         </View>
       </View>
-    </View>
+      </KeyboardAvoidingView>
   );
 };
 
@@ -88,7 +95,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-const { object, func } = PropTypes;
+const { object, func } = PropTypes;    
 CreateAccountScreen.propTypes = {
   postVerifyNumber: object,
   doPostVerifyNumber: func,

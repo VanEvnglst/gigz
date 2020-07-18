@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, Image, TouchableOpacity, TextInput } from 'react-native'
+import { View, Text, Image, TouchableOpacity, KeyboardAvoidingView, Platform, TextInput } from 'react-native'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
@@ -25,7 +25,11 @@ const LoginScreen = ({ navigation, doPostLogin, login }) => {
   }
 
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView
+    behavior={Platform.OS == "ios" ? "padding" : "height"}
+    keyboardVerticalOffset={Platform.OS == "ios" ? 0 : 20}
+    enabled={Platform.OS === "ios" ? true : false}
+    style={styles.container}>
       <View style={styles.container}>
         <View style={styles.bannerContainer}>
           <View style={styles.bannerOverlay}>
@@ -42,6 +46,7 @@ const LoginScreen = ({ navigation, doPostLogin, login }) => {
         <View style={styles.inputContainer}>
           <TextInput
             style={styles.inputStyle}
+            keyboardType={'phone-pad'}
             placeholder={'Enter your mobile number'}
             onChangeText={(value) => handleInput('contact', value)}
           />
@@ -68,7 +73,7 @@ const LoginScreen = ({ navigation, doPostLogin, login }) => {
           </View>
         </View>
       </View>
-    </View>
+    </KeyboardAvoidingView>
   )
 }
 
