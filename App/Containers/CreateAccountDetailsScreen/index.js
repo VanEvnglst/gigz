@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Platform, KeyboardAvoidingView } from 'react-native';
 import CountryPicker from 'react-native-country-picker-modal'
 import styles from './styles';
 
 const CreateAccountDetailsScreen = props => {
   const { navigation } = props;
+  const [countryCode, setCountryCode] = useState('PH');
+  const [country, setCountry] = useState('');
+
+  const onSelect = (country) => {
+    setCountryCode(country.cca2)
+    setCountry(country);
+  }
+
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS == "ios" ? "padding" : "height"}
@@ -14,21 +22,28 @@ const CreateAccountDetailsScreen = props => {
       <View style={styles.contentContainer}>
         <View style={{ alignItems: 'flex-start' }}>
           <Text style={styles.headerTextStyle}>Create Account</Text>
-          
-        
-          <View style={{ borderWidth: 1, width: '100%',
-    borderColor: '#70707029',
-    marginVertical: 10, height: 51, borderRadius: 25, flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center',}}>
-          <CountryPicker
-            containerButtonStyle={{height: 51, borderTopLeftRadius: 25, borderBottomLeftRadius: 25, width: '80%', justifyContent: 'center', paddingLeft: 15, backgroundColor: '#70707029'}}
-            withFlag={true}
-          />
-          <TextInput
-            placeholder={'Mobile number'}
-            keyboardType={'phone-pad'}
-          />
-         
-            </View>
+
+
+          <View style={styles.mobileInputStyle}>
+            <CountryPicker
+              {... {
+                onSelect,
+                countryCode
+              }}
+              containerButtonStyle={styles.countryPickerStyle}
+              withFlag={true}
+              withCallingCode={true}
+              withCountryNameButton={false}
+              withCallingCodeButton={true}
+              withAlphaFilter={true}
+
+            />
+            <TextInput
+              placeholder={'Mobile number'}
+              keyboardType={'phone-pad'}
+            />
+
+          </View>
           <TextInput
             style={styles.inputStyle}
             placeholder={'Full name'} />

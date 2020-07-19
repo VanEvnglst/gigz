@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { View, Text, Image, TouchableOpacity, KeyboardAvoidingView, Platform, TextInput } from 'react-native'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import CountryPicker from 'react-native-country-picker-modal'
 
 import UserActions from 'App/Redux/UserRedux'
 
@@ -17,11 +18,18 @@ const LoginScreen = ({ navigation, doPostLogin, login }) => {
   }, [login])
 
   const [loginState, setLogin] = useState({ contact: '', password: '' })
+  const [countryCode, setCountryCode] = useState('PH');
+  const [country, setCountry] = useState('');
 
   const handleInput = (key, value) => setLogin({ ...loginState, [key]: value })
 
   const handleLoginSubmit = () => {
     doPostLogin(loginState)
+  }
+
+  const onSelect = (country) => {
+    setCountryCode(country.cca2)
+    setCountry(country);
   }
 
   return (
@@ -44,12 +52,26 @@ const LoginScreen = ({ navigation, doPostLogin, login }) => {
         </View>
 
         <View style={styles.inputContainer}>
-          <TextInput
-            style={styles.inputStyle}
+          <View style={styles.mobileInputStyle}>
+          <CountryPicker
+              {... {
+                onSelect,
+                countryCode
+              }}
+              containerButtonStyle={styles.countryPickerStyle}
+              withFlag={true}
+              withCallingCode={true}
+              withCountryNameButton={false}
+              withCallingCodeButton={true}
+              withAlphaFilter={true}
+            />
+             <TextInput
             keyboardType={'phone-pad'}
             placeholder={'Enter your mobile number'}
             onChangeText={(value) => handleInput('contact', value)}
           />
+          </View>
+
           <TextInput
             style={styles.inputStyle}
             placeholder={'Password'}

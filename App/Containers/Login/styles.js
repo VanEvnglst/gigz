@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
   },
   inputStyle: { 
     borderWidth: 1, 
-    width: '85%', 
+    width: '90%', 
     height: 51, 
     borderRadius: 25, 
     padding: 15, 
@@ -107,6 +107,26 @@ const styles = StyleSheet.create({
   footerContent: {
     flexDirection: 'row'
   },
+  mobileInputStyle: {
+    borderWidth: 1,
+    width: '90%',
+    borderColor: '#70707029',
+    marginVertical: 10, 
+    height: 51, 
+    borderRadius: 25, 
+    flexDirection: 'row', 
+    justifyContent: 'flex-start', 
+    alignItems: 'center',
+  },
+  countryPickerStyle: { 
+    height: 51, 
+    borderTopLeftRadius: 25, 
+    borderBottomLeftRadius: 25, 
+    justifyContent: 'center', 
+    paddingLeft: 15, 
+    paddingRight: 10, 
+    backgroundColor: '#70707029' 
+  }
 });
 
 export default styles;

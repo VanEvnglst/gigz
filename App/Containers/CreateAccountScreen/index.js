@@ -4,6 +4,7 @@ import UserActions from 'App/Redux/UserRedux';
 import PropTypes from 'prop-types';
 
 import { View, Text, Image, TextInput,Platform,  TouchableOpacity, KeyboardAvoidingView } from 'react-native';
+import CountryPicker from 'react-native-country-picker-modal'
 import { Images } from 'App/Theme';
 import styles from './styles';
 
@@ -18,6 +19,8 @@ const CreateAccountScreen = (props) => {
     }
   }, [postVerifyNumber]);
   const [number, setNumber] = useState('');
+  const [countryCode, setCountryCode] = useState('PH');
+  const [country, setCountry] = useState('');
 
   const createButtonHandler = () => {
     props.doPostVerifyNumber({
@@ -25,6 +28,11 @@ const CreateAccountScreen = (props) => {
       country: 'PH',
     });
   };
+
+  const onSelect = (country) => {
+    setCountryCode(country.cca2)
+    setCountry(country);
+  }
 
   return (
        <KeyboardAvoidingView
@@ -48,13 +56,28 @@ const CreateAccountScreen = (props) => {
         </View>
 
         <View style={styles.inputContainer}>
-          <TextInput
-            value={number}
+        <View style={styles.mobileInputStyle}>
+            <CountryPicker
+              {... {
+                onSelect,
+                countryCode
+              }}
+              containerButtonStyle={styles.countryPickerStyle}
+              withFlag={true}
+              withCallingCode={true}
+              withCountryNameButton={false}
+              withCallingCodeButton={true}
+              withAlphaFilter={true}
+
+            />
+            <TextInput
+              placeholder={'Mobile number'}
+              placeholder={'Enter your mobile number'}
+              value={number}
             onChangeText={(number) => setNumber(number)}
-            style={styles.inputStyle}
-            keyboardType={'phone-pad'}
-            placeholder={'Enter your mobile number'}
-          />
+            />
+
+          </View>
         </View>
 
         <View style={styles.buttonContainer}>
